@@ -1,5 +1,5 @@
 
-## material-ul/core install error
+## material-ul/core, /icon install error
 
 - ### 오류 내용
 <blockquote> npm ERR! Could not resolve dependency:
