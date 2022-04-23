@@ -31,4 +31,42 @@
     v7에서는 default로 설치된다.
 
 
+<br><br><br>
 
+- ### 오류 내용
+<blockquote> ERROR in Failed to load config "react-app" to extend from. </blockquote>
+
+- ### 해결 방법
+<blockquote> npm install eslint-config-react-app 을 설치해주었다. </blockquote>
+
+<br><br><br>
+
+- ### 오류 내용
+<blockquote> ERROR in Plugin "react" was conflicted between "package.json » eslint-config-react-app » D:\todo-react-app\node_modules\eslint-config-react-app\base.js" and "BaseConfig  </blockquote>
+
+- ### 해결 방법
+<blockquote>
+현재 설치된 버전 삭제 후에 재 설치했다. 버전은 아래 코드와 같다.<br>
+<code>npm remove eslint-config-react-app</code> <br>
+<code>npm install eslint@4.x babel-eslint@8 - g</code>
+ </blockquote>
+
+<br><br><br>
+
+- ### 오류 내용
+<blockquote> ERROR in Failed to load plugin 'flowtype' declared in 'package.json » eslint-config-react-app': Cannot find module 'eslint/use-at-your-own-risk'
+</blockquote>
+
+- ### 해결 방법
+<blockquote> package.json에서  아래 부분을 삭제 후 NPM INSTALL을 해주었다.
+
+``` javascript
+"eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+```
+
+</blockquote>
