@@ -1,14 +1,21 @@
 import React, {useState} from "react";
-
-function Todo (props) {
-    const [item, setItem] = useState('');
+import {ListItem, ListItemText, InputBase, Checkbox} from "@material-ui/core";
+function Todo ({item}) {
 
     return(
-        <div className="Todo">
-            <input type="checkbox" id="todo0" name="todo0" value="todo0"/>
-            <label htmlFor="todo0"> Todo 컴포넌트 만들기 </label>
-        </div>
-
+        <ListItem>
+            <Checkbox checked={item.done}/>
+            <ListItemText>
+                    <InputBase
+                        inputRoprs={{ "aria-label":"naked" }}
+                        type="text"
+                        name={item.id.toString()}
+                        value={item.title}
+                        multiline={true}
+                        fullWidth={true}
+                    />
+            </ListItemText>
+        </ListItem>
     )
 }
 
