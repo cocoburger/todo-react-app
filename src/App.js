@@ -21,13 +21,13 @@ function App() {
     ]);
 
     const add = (item) => {
-        console.log(items.length);
+        const objItem = {};
         const thisItems = items;
-        item.id = items.length;
-        item.done = false;
-        thisItems.push(item);
+        objItem.id = items.length;
+        objItem.title = item;
+        objItem.done = false;
+        thisItems.push(objItem);
         setItems(thisItems);
-        console.log("items : ", items);
     }
 
 
