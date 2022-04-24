@@ -1,7 +1,8 @@
 import './App.css';
 import Todo from "./Todo";
 import {useState} from "react";
-import {List, Paper} from "@material-ui/core";
+import {Container, List, Paper} from "@material-ui/core";
+import AddTodo from "./AddTodo";
 
 function App() {
     const [items, setItems] = useState(
@@ -19,10 +20,21 @@ function App() {
             }
     ]);
 
+    const add = (item) => {
+        console.log(items.length);
+        const thisItems = items;
+        item.id = items.length;
+        item.done = false;
+        thisItems.push(item);
+        setItems(thisItems);
+        console.log("items : ", items);
+    }
+
 
   return (
-      <>
-          <div className="App">
+      <div className="App">
+          <Container>
+              <AddTodo add={add} />
               <Paper style={{ margin: 16}}>
                   <List>
                       { items.map((item,index) => (
@@ -30,8 +42,8 @@ function App() {
                       ))}
                   </List>
               </Paper>
-          </div>
-      </>
+          </Container>
+      </div>
   );
 }
 
