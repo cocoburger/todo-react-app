@@ -6,12 +6,17 @@ function AddTodo ( props ) {
 
 
     const onInputChange = (e) => {
-        console.log("e.target.value : " + e.target.value);
         const thisItem = e.target.value;
         setTitle(thisItem);
     }
     const onButtonClick = () => {
         props.add(title);
+    }
+
+    const enterKeyEventHandler = (e) => {
+        if(e.key === 'Enter') {
+            onButtonClick();
+        }
     }
 
     return (
@@ -22,10 +27,17 @@ function AddTodo ( props ) {
                                fullWidth
                                value={title}
                                onChange={onInputChange}
+                               onKeyPress={enterKeyEventHandler}
+
                     />
                 </Grid>
                 <Grid xs={1} md={1} item>
-                    <Button fullWidth color="secondary" variant="outlined" onClick={onButtonClick}>
+                    <Button
+                        fullWidth
+                        color="secondary"
+                        variant="outlined"
+                        onClick={onButtonClick}
+                    >
                         +
                     </Button>
                 </Grid>

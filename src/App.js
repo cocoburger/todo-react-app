@@ -20,6 +20,13 @@ function App() {
             }
     ]);
 
+    const deleteList = item => {
+        const thisItems = items;
+        console.log("Before Update Items : ", items);
+        const newItems = items.filter(e => e.id !== item.id);
+        setItems( newItems);
+    }
+
     const add = (item) => {
         const objItem = {};
         const thisItems = items;
@@ -27,6 +34,7 @@ function App() {
         objItem.title = item;
         objItem.done = false;
         thisItems.push(objItem);
+        console.log(thisItems);
         setItems(thisItems);
     }
 
@@ -34,11 +42,11 @@ function App() {
   return (
       <div className="App">
           <Container>
-              <AddTodo add={add} />
+              <AddTodo add={add}  />
               <Paper style={{ margin: 16}}>
                   <List>
-                      { items.map((item,index) => (
-                          <Todo item={item} key={item.id} />
+                      { items.map((item) => (
+                          <Todo item={item} key={item.id} deleteList={deleteList} />
                       ))}
                   </List>
               </Paper>
